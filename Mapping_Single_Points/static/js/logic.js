@@ -9,7 +9,9 @@ console.log("working");
 // 3) 'setView()` method sets the view of the map with geographical center, with
 //    first coordinate (40.7) the latitude, second (-94.5) the latitude; the
 //    zoom level set to '4' on a scale 0-18.
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+//.xx 13.4.1 :
+// let map = L.map('mapid').setView([40.7, -94.5], 4);
+//xx.
 
 // // Note that an alternative (will use later in module) to `setView()` method for
 // // setting map object center and zoom level is the following (using curly braces
@@ -20,6 +22,28 @@ let map = L.map('mapid').setView([40.7, -94.5], 4);
 //         40.7, -94.5
 //     ],
 // });
+
+
+let map = L.map('mapid').setView([34.0522, -118.2437], 14);
+
+// Add a marker to the map for Los Angeles, California.
+// let marker = L.marker([34.0522, -118.2437]).addTo(map);
+// L.circle([34.0522, -118.2437], {
+//     radius: 300,
+//     fillColor: "lightyellow",
+//     fillOpacity: 0.25,
+//     color: "black",
+//     weight: 3,
+//     opacity: 0.6
+// }).addTo(map);
+
+// Add a circle to the map
+L.circleMarker([34.0522, -118.2437], {
+    radius: 300,
+    color: "black",
+    fillColor: "#ffffa1"
+}).addTo(map);
+
 
 // =================================================================================
 // A "tile layer is used to load and display a tile layer on the map."
@@ -75,7 +99,7 @@ let map = L.map('mapid').setView([40.7, -94.5], 4);
 // (vi) Remove the `id` attribute and the map style reference.
 // (vii) The code for the `tileLayer()` should look like the following:
 // We create the tile layer that will be the background of our map.
-let streets2 = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let streets2 = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     accessToken: API_KEY
